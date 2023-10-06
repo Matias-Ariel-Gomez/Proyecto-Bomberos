@@ -22,14 +22,15 @@ public class Cualtel27 {
 //        brd.guardarBrigada(alfa);
 //               
 //        Bombero a=new Bombero(2 ,"01020304", "Rodriguez, Rodrigo", "AB (+)", LocalDate.of(2000, Month.JANUARY, 31), "000-1111", null ,true);
-//        BomberoData bd=new BomberoData(); 
+        BomberoData bd=new BomberoData(); 
 //        bd.guardarBombero(a);        
 //        bd.modificarBombero(a);
 //        bd.eliminarBombero(2);
 //
 //        Bombero lista=bd.buscarBombero(2);
+        
+//        ArrayList<Bombero> bon=bd.listarBombero();
+//        System.out.println(bon.toString());
 //        
-//        bd.listarBombero();
-    
     }
 }
