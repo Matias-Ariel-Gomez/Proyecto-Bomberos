@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class BomberoData {
@@ -149,26 +150,38 @@ public class BomberoData {
      }
      
     
-    public ArrayList <Bombero> listarBombero(){
+    public ArrayList<Bombero> listarBombero(){
         Bombero b=null;
+       
         
         ArrayList<Bombero> lista = new ArrayList<>();
         
         try {
-            String sql = "SELECT codBombero=?, nombreCompleto=? FROM bombero WHERE estadoBombero =?";
+            String sql = "SELECT dni, nombreCompleto FROM bombero WHERE estadoBombero =?";
             
             PreparedStatement ps = conex.prepareStatement(sql);
-            
+            ps.setBoolean(1, true);
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
                  b = new Bombero();
-                 b.setCodBombero(rs.getInt("codBomebero"));
+                 b.setDni(rs.getString("dni"));       
                  b.setNombreCompleto(rs.getString("nombreCompleto"));
-                 b.setEstadoBombero(true);
+                 b.isEstadoBombero();
                 
-                 lista.add(b);
+                 lista.add(b);    
+                 
+            }    
+            
+            System.out.println("LISTADO DE BOMBEROS ACTIVOS");
+            for (Bombero x:lista){
+                     
+                System.out.println(x.getDni()+ " " + x.getNombreCompleto() );
+                System.out.println("");
             }
+            System.out.println("");                
+            
+            
             
             ps.close();
             rs.close();
@@ -177,8 +190,12 @@ public class BomberoData {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Bombero " );
         }
         return lista;
-
     }
+       
+}    
+
     
-}   
- 
+    
+    
+
+
