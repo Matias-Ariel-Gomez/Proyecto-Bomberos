@@ -2,6 +2,8 @@ package Cuartel27;
 import Entidades.*;
 import ClasesData.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,13 +16,13 @@ public class Cualtel27 {
         CentralData conexion=new CentralData();
         conexion.conectarBD();  
         
-    //Cuartel uno = new Cuartel( "CuartelUno", 5.1, "000-222222", "cuarteluno@cuartel27.com");
-       //CuartelData cd=new CuartelData();
-      // cd.guardarCuartel(uno);
-        
-      // Brigada alfa=new Brigada( 1," Brigada Beta", "Rescate en altura",null, true );
-       BrigadaData brd=new BrigadaData();
-       brd.listarBrigada();
+    //Cuartel dos = new Cuartel( 7,"CuartelDos", 1.2, "000-333333", "cuarteldos@cuartel27.com");
+    //CuartelData cd=new CuartelData();
+    //cd.guardarCuartel(dos);
+    //cd.modificarCuartel(dos);
+      Brigada alfa=new Brigada( 1," Brigada Beta", "Rescate en altura",null, true );
+      // BrigadaData brd=new BrigadaData();
+      // brd.listarBrigada();
        
        
        //brd.modificarBrigada(alfa);
@@ -35,10 +37,21 @@ public class Cualtel27 {
       // for(Bombero a:bd.listarBombero()){
       // bd.listarBombero();
        //for (Iterator<Bombero> it = lista.iterator(); it.hasNext();) {
-                   // System.out.println(listarBombero().);
-                }
+       // System.out.println(listarBombero().);
+                
       // Bombero lista=bd.buscarBombero(2);
-        
-      //bd.listarBombero();
+       //bd.listarBombero();
+       //cd.buscarCuartel(6);
+      //  cd.listarCuartel();
+      LocalTime ld = LocalTime.now();
+      double dr = 7.3; 
+      LocalDate Is = LocalDate.of(2006,06,04);
+      LocalDate Fs = LocalDate.of(2006,06,05);
+      
+      Siniestro s = new Siniestro(dr ,Is,ld,"Incendio","Incendio edificio", Fs, 9,alfa,true);
+      SiniestroData sd = new SiniestroData();
+      
+      sd.guardarSiniestro(s);
+    }
         
     }

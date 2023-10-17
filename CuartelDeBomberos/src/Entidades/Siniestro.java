@@ -1,13 +1,14 @@
 package Entidades;
 import Entidades.Brigada;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Siniestro {
     private int codSiniestro;
     private Double direccionSiniestro;
     private LocalDate fechaSiniestro;
-    private LocalTime hora;
+    private LocalTime hora = LocalTime.now();
     private String tipo;
     private String detalle;
     private LocalDate fechaResolucion;
