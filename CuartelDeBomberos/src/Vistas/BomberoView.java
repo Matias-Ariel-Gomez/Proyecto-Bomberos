@@ -44,6 +44,35 @@ public class BomberoView extends javax.swing.JInternalFrame {
         jrb_pasivo = new javax.swing.JRadioButton();
         jb_BombreosActivos = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        bombero1 = new javax.swing.JLabel();
+        jb_eliminar1 = new javax.swing.JButton();
+        jb_nuevo1 = new javax.swing.JButton();
+        jb_modificar1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtabla_bombero1 = new javax.swing.JTable();
+        jb_salir1 = new javax.swing.JButton();
+        panel_datosPersonales1 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jtf_dni1 = new javax.swing.JTextField();
+        jtf_nombreCompleto1 = new javax.swing.JTextField();
+        jtf_grupoSanguineo1 = new javax.swing.JTextField();
+        jtf_telCelular1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jdc_fechaNacimiento1 = new com.toedter.calendar.JDateChooser();
+        jcb_brigada1 = new javax.swing.JComboBox();
+        jLabel18 = new javax.swing.JLabel();
+        jrb_activo1 = new javax.swing.JRadioButton();
+        jrb_pasivo1 = new javax.swing.JRadioButton();
+        jb_BombreosActivos1 = new javax.swing.JButton();
+        fondo1 = new javax.swing.JLabel();
 
         setDoubleBuffered(true);
         setMaximumSize(null);
@@ -105,7 +134,7 @@ public class BomberoView extends javax.swing.JInternalFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 740, 100));
 
-        jb_salir.setBackground(new java.awt.Color(102, 102, 102));
+        jb_salir.setBackground(new java.awt.Color(51, 51, 51));
         jb_salir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jb_salir.setForeground(new java.awt.Color(255, 255, 255));
         jb_salir.setText("Salir");
@@ -247,7 +276,7 @@ public class BomberoView extends javax.swing.JInternalFrame {
 
         jPanel1.add(panel_datosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 740, 200));
 
-        jb_BombreosActivos.setBackground(new java.awt.Color(102, 102, 102));
+        jb_BombreosActivos.setBackground(new java.awt.Color(51, 51, 51));
         jb_BombreosActivos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jb_BombreosActivos.setForeground(new java.awt.Color(255, 255, 255));
         jb_BombreosActivos.setText("Bomberos Activos");
@@ -257,6 +286,221 @@ public class BomberoView extends javax.swing.JInternalFrame {
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/fondo.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
+
+        jInternalFrame1.setDoubleBuffered(true);
+        jInternalFrame1.setMaximumSize(null);
+        jInternalFrame1.setMinimumSize(null);
+        jInternalFrame1.setPreferredSize(new java.awt.Dimension(1024, 614));
+        jInternalFrame1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(0, 51, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Gestión Bomberos");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+
+        bombero1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Bombero.jpg"))); // NOI18N
+        jPanel2.add(bombero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, -1, -1));
+
+        jb_eliminar1.setBackground(new java.awt.Color(102, 102, 102));
+        jb_eliminar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jb_eliminar1.setForeground(new java.awt.Color(255, 255, 255));
+        jb_eliminar1.setText("Eliminar");
+        jb_eliminar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_eliminar1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jb_eliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 100, 30));
+
+        jb_nuevo1.setBackground(new java.awt.Color(102, 102, 102));
+        jb_nuevo1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jb_nuevo1.setForeground(new java.awt.Color(255, 255, 255));
+        jb_nuevo1.setText("Nuevo");
+        jb_nuevo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_nuevo1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jb_nuevo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 100, 30));
+
+        jb_modificar1.setBackground(new java.awt.Color(102, 102, 102));
+        jb_modificar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jb_modificar1.setForeground(new java.awt.Color(255, 255, 255));
+        jb_modificar1.setText("Actualizar");
+        jPanel2.add(jb_modificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 100, 30));
+
+        jtabla_bombero1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jtabla_bombero1);
+
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 740, 100));
+
+        jb_salir1.setBackground(new java.awt.Color(51, 51, 51));
+        jb_salir1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jb_salir1.setForeground(new java.awt.Color(255, 255, 255));
+        jb_salir1.setText("Salir");
+        jPanel2.add(jb_salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 80, -1));
+
+        panel_datosPersonales1.setBackground(new java.awt.Color(76, 212, 152));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setText("DNI:");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel12.setText("Apellido y Nombre:");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel13.setText("Grupo Sanguineo:");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel14.setText("Telefono:");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel15.setText("DATOS PERSONALES");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel16.setText("Fecha de Nacimiento:");
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel17.setText("Brigada:");
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel18.setText("Estado:");
+
+        jrb_activo1.setText("      Activo");
+
+        jrb_pasivo1.setText("    Pasivo");
+
+        javax.swing.GroupLayout panel_datosPersonales1Layout = new javax.swing.GroupLayout(panel_datosPersonales1);
+        panel_datosPersonales1.setLayout(panel_datosPersonales1Layout);
+        panel_datosPersonales1Layout.setHorizontalGroup(
+            panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(jLabel15))
+                    .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                        .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jLabel14)
+                                .addGap(53, 53, 53))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_datosPersonales1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel13)))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                                .addComponent(jtf_grupoSanguineo1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                                .addComponent(jtf_telCelular1)
+                                .addGap(331, 331, 331))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_datosPersonales1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(98, 98, 98)
+                                .addComponent(jtf_dni1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jtf_nombreCompleto1)))
+                        .addGap(40, 40, 40)
+                        .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(18, 18, 18)
+                                .addComponent(jdc_fechaNacimiento1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                                .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_datosPersonales1Layout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_datosPersonales1Layout.createSequentialGroup()
+                                        .addComponent(jLabel18)
+                                        .addGap(22, 22, 22)))
+                                .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                                        .addComponent(jrb_activo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jrb_pasivo1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jcb_brigada1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(33, 33, 33))
+        );
+        panel_datosPersonales1Layout.setVerticalGroup(
+            panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(20, 20, 20)
+                        .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jtf_dni1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16)))
+                    .addComponent(jdc_fechaNacimiento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtf_nombreCompleto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel12)))
+                    .addGroup(panel_datosPersonales1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jcb_brigada1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(16, 16, 16)
+                .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jtf_grupoSanguineo1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(jrb_activo1)
+                    .addComponent(jrb_pasivo1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel_datosPersonales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jtf_telCelular1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(panel_datosPersonales1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 740, 200));
+
+        jb_BombreosActivos1.setBackground(new java.awt.Color(51, 51, 51));
+        jb_BombreosActivos1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jb_BombreosActivos1.setForeground(new java.awt.Color(255, 255, 255));
+        jb_BombreosActivos1.setText("Bomberos Activos");
+        jPanel2.add(jb_BombreosActivos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, -1, -1));
+
+        jInternalFrame1.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 800, 610));
+
+        fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/fondo.jpg"))); // NOI18N
+        jInternalFrame1.getContentPane().add(fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
+
+        getContentPane().add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -270,11 +514,31 @@ public class BomberoView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_eliminarActionPerformed
 
+    private void jb_eliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_eliminar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_eliminar1ActionPerformed
+
+    private void jb_nuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_nuevo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_nuevo1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bombero;
+    private javax.swing.JLabel bombero1;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel fondo1;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -284,22 +548,39 @@ public class BomberoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jb_BombreosActivos;
+    private javax.swing.JButton jb_BombreosActivos1;
     private javax.swing.JButton jb_eliminar;
+    private javax.swing.JButton jb_eliminar1;
     private javax.swing.JButton jb_modificar;
+    private javax.swing.JButton jb_modificar1;
     private javax.swing.JButton jb_nuevo;
+    private javax.swing.JButton jb_nuevo1;
     private javax.swing.JButton jb_salir;
+    private javax.swing.JButton jb_salir1;
     private javax.swing.JComboBox jcb_brigada;
+    private javax.swing.JComboBox jcb_brigada1;
     private com.toedter.calendar.JDateChooser jdc_fechaNacimiento;
+    private com.toedter.calendar.JDateChooser jdc_fechaNacimiento1;
     private javax.swing.JRadioButton jrb_activo;
+    private javax.swing.JRadioButton jrb_activo1;
     private javax.swing.JRadioButton jrb_pasivo;
+    private javax.swing.JRadioButton jrb_pasivo1;
     private javax.swing.JTable jtabla_bombero;
+    private javax.swing.JTable jtabla_bombero1;
     private javax.swing.JTextField jtf_dni;
+    private javax.swing.JTextField jtf_dni1;
     private javax.swing.JTextField jtf_grupoSanguineo;
+    private javax.swing.JTextField jtf_grupoSanguineo1;
     private javax.swing.JTextField jtf_nombreCompleto;
+    private javax.swing.JTextField jtf_nombreCompleto1;
     private javax.swing.JTextField jtf_telCelular;
+    private javax.swing.JTextField jtf_telCelular1;
     private javax.swing.JPanel panel_datosPersonales;
+    private javax.swing.JPanel panel_datosPersonales1;
     // End of variables declaration//GEN-END:variables
 
 public void datosPersonales (){

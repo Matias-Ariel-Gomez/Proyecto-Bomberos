@@ -55,6 +55,7 @@ public class CentralView extends javax.swing.JFrame {
         jmi_bomberos = new javax.swing.JMenuItem();
         jmi_brigadas = new javax.swing.JMenuItem();
         jmi_cuarteles = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -275,11 +276,17 @@ public class CentralView extends javax.swing.JFrame {
         jMenu1.setForeground(new java.awt.Color(51, 51, 51));
         jMenu1.setText("Gestión de Siniestros");
         jMenu1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jmi_siniestros.setBackground(new java.awt.Color(212, 245, 236));
         jmi_siniestros.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jmi_siniestros.setForeground(new java.awt.Color(102, 102, 102));
         jmi_siniestros.setText("Siniestros");
+        jmi_siniestros.setFocusPainted(true);
         jmi_siniestros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmi_siniestrosActionPerformed(evt);
@@ -319,6 +326,12 @@ public class CentralView extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jmi_cuarteles);
+
+        jMenuItem1.setBackground(new java.awt.Color(212, 245, 236));
+        jMenuItem1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem1.setForeground(new java.awt.Color(102, 102, 102));
+        jMenuItem1.setText("Salir");
+        jMenu1.add(jMenuItem1);
 
         jmb_menu.add(jMenu1);
 
@@ -382,8 +395,10 @@ public class CentralView extends javax.swing.JFrame {
         SiniestroView sin=new SiniestroView(); 
         sin.setVisible(true);        
         escritorio.add(sin);        
-        sin.moveToFront();
-
+        sin.moveToFront();    
+        
+      
+    
     }//GEN-LAST:event_jmi_siniestrosActionPerformed
 
     private void jmi_brigadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_brigadasActionPerformed
@@ -416,6 +431,10 @@ public class CentralView extends javax.swing.JFrame {
         bom.moveToFront();
 
     }//GEN-LAST:event_jmi_bomberosActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+       dispose();
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
     public static void main(String args[]) {
    
@@ -470,6 +489,7 @@ public class CentralView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar jmb_menu;
     private javax.swing.JMenuItem jmi_bomberos;
     private javax.swing.JMenuItem jmi_brigadas;
@@ -486,9 +506,10 @@ public class CentralView extends javax.swing.JFrame {
 
 public void ingresoNoView(){
     
-    jmb_menu.setVisible(false);
+    jmb_menu.setVisible(true);
     contacto.setVisible(false);
-    Redes.setVisible(false);
+    Redes.setVisible(false);   
+      
     
 }
 public void ingresoView(){
