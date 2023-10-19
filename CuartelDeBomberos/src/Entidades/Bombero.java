@@ -36,6 +36,14 @@ public class Bombero {
         this.estadoBombero = estadoBombero;
     }
 
+    public Bombero(String dni, String nombreCompleto, String grupoSanguineo, LocalDate fechaNacimiento, String telCelular, int brigada, Boolean estado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Bombero(String dni, String nombreCompleto, String grupoSanguineo, LocalDate fechaNacimiento, String telCelular, String brigada, Boolean estadoBombero) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getCodBombero() {
         return codBombero;
     }
@@ -103,6 +111,14 @@ public class Bombero {
     @Override
     public String toString() {
         return "Bombero{" + "codBombero=" + codBombero + ", dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", grupoSanguineo=" + grupoSanguineo + ", fechaNacimiento=" + fechaNacimiento + ", telCelular=" + telCelular + ", brigada=" + brigada + ", estadoBombero=" + estadoBombero + '}';
+    }
+
+    public void setBrigada(String brigada) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setBrigada(int brigada) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
        

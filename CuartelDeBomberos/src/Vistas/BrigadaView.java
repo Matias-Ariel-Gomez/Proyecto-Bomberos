@@ -59,18 +59,18 @@ public class BrigadaView extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         brigada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Image20231018194921.jpg"))); // NOI18N
-        jPanel1.add(brigada, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
+        jPanel1.add(brigada, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
         lgestionbrigrada.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
         lgestionbrigrada.setForeground(new java.awt.Color(255, 255, 255));
         lgestionbrigrada.setText("Gestion Brigada");
-        jPanel1.add(lgestionbrigrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jPanel1.add(lgestionbrigrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         jBbuscar.setText("Buscar");
-        jPanel1.add(jBbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jPanel1.add(jBbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         jbmodificar.setText("Modificar");
-        jPanel1.add(jbmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
+        jPanel1.add(jbmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(76, 212, 152));
         jPanel2.setForeground(new java.awt.Color(76, 212, 152));
@@ -153,16 +153,21 @@ public class BrigadaView extends javax.swing.JInternalFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 590, 100));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 590, 100));
 
         jbeliminar.setText("Eliminar");
-        jPanel1.add(jbeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        jPanel1.add(jbeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
 
         jbguardar.setText("Guardar");
-        jPanel1.add(jbguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
+        jPanel1.add(jbguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
         jbsalir.setText("Salir");
-        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, -1, -1));
+        jbsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbsalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,12 +182,12 @@ public class BrigadaView extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 590, 120));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 590, 90));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 640, 470));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 640, 420));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/fondo.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1050, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,6 +199,11 @@ public class BrigadaView extends javax.swing.JInternalFrame {
     private void jrbpasivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbpasivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jrbpasivoActionPerformed
+
+    private void jbsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalirActionPerformed
+        
+        dispose();
+    }//GEN-LAST:event_jbsalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

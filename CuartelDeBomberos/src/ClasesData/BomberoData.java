@@ -25,7 +25,7 @@ public class BomberoData {
            
 
     public void guardarBombero(Bombero b){
-        String sql= ("INSERT INTO  bombero * VALUES (?,?,?,?,?,?,?)");  
+        String sql= ("INSERT INTO  bombero * VALUES (?,?,?,?,?,?)");  
          
          try{  
              PreparedStatement ps = conex.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -35,7 +35,7 @@ public class BomberoData {
              ps.setString(3,b.getGrupoSanguineo());
              ps.setDate(4,Date.valueOf(b.getFechaNacimiento()));
              ps.setString(5, b.getTelCelular());
-             ps.setInt(6, b.getBrigada().getCodBrigada());
+//             ps.setInt(6, b.getBrigada().getCodBrigada());
              ps.setBoolean(7,b.isEstadoBombero());
              
              ps.executeUpdate();
