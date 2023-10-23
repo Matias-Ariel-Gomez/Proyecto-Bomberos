@@ -14,7 +14,9 @@ public class Siniestro {
     private LocalDate fechaResolucion;
     private int puntuacion;
     private Brigada brigada;
+    //private int codBrigada;
     private boolean estadoSiniestro;
+    
 
     public Siniestro() {
     }
@@ -126,7 +128,7 @@ public class Siniestro {
 
     @Override
     public String toString() {
-        String siniestro=(" Codigo del Siniestro: " + codSiniestro + "- Dirección: " + direccionSiniestro + "- Fecha del Siniestro: " + fechaSiniestro + "-  Hora:" + hora + "- Tipo: " + tipo + "- Detalle: " + detalle + "- Fecha de Resolucion: " + fechaResolucion + "-  Puntuacion: " + puntuacion + "- Brigada: " + brigada.getCodBrigada() + "- Estado: " + estadoSiniestro);
+        String siniestro=("Codigo del Siniestro: " + codSiniestro + "\n" + "Dirección: " + direccionSiniestro + "\n" + "Fecha del Siniestro: " + fechaSiniestro + "\n" + "Hora:" + hora + "\n" + "Tipo: " + tipo + "\n" + "Detalle: " + detalle + "\n" + "Fecha de Resolucion: " + fechaResolucion + "\n" + "Puntuacion: " + puntuacion + "\n" + "Brigada: " + brigada.getCodBrigada() + "\n" + "Estado: " + estadoSiniestro);
         return siniestro;
     }
 

@@ -114,9 +114,13 @@ public class BrigadaData {
                  br.setCodBrigada(id);
                  br.setNombreClave(rs.getString("nombreClave"));
                  br.setEspecialidad(rs.getString("especialidad"));
-                 //br.setCuartel(rs.getObject( Cuartel ));
+                 
+                 Cuartel ctl = new Cuartel();
+                 ctl.setCodCuartel(rs.getInt("codCuartel"));
+                 
+                 br.setCuartel(ctl);
                  br.setEstadoBrigada(rs.getBoolean("estadoBrigada"));
-                 br.setCuartel((Cuartel) rs.getObject("cuartel"));
+                 System.out.println(br);
              }
              
              ps.close();
@@ -124,7 +128,7 @@ public class BrigadaData {
              
          }catch (SQLException e){
              
-             JOptionPane.showMessageDialog(null, "Error al realizar búsqueda.");
+             JOptionPane.showMessageDialog(null, "Error al realizar búsqueda");
          }
          
         return br;

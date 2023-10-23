@@ -17,16 +17,16 @@ public class Cualtel27 {
         conexion.conectarBD();  
         
     //Cuartel dos = new Cuartel( 7,"CuartelDos", 1.2, "000-333333", "cuarteldos@cuartel27.com");
-    //CuartelData cd=new CuartelData();
+    CuartelData cd=new CuartelData();
     //cd.guardarCuartel(dos);
     //cd.modificarCuartel(dos);
-      Brigada alfa=new Brigada( 1," Brigada Beta", "Rescate en altura",null, true );
-      // BrigadaData brd=new BrigadaData();
+     Brigada alfa=new Brigada( 1," Brigada Beta", "Rescate en altura",null, true );
+     // BrigadaData brd=new BrigadaData();
       // brd.listarBrigada();
        
        
        //brd.modificarBrigada(alfa);
-       // brd.guardarBrigada(alfa);
+      // brd.guardarBrigada(brigada);
       // brd.eliminarBrigada(1);
         //Bombero a=new Bombero(2 ,"01020304", "Rodriguez, Rodrigo", "AB (+)", LocalDate.of(2000, Month.JANUARY, 31), "000-1111", null ,true);
        //BomberoData bd=new BomberoData(); 
@@ -41,17 +41,21 @@ public class Cualtel27 {
                 
       // Bombero lista=bd.buscarBombero(2);
        //bd.listarBombero();
-       //cd.buscarCuartel(6);
+       //cd.buscarCuartel(7);
       //  cd.listarCuartel();
-      LocalTime ld = LocalTime.now();
-      double dr = 7.3; 
-      LocalDate Is = LocalDate.of(2006,06,04);
-      LocalDate Fs = LocalDate.of(2006,06,05);
+       LocalTime ld = LocalTime.now();
+      double dr = 9.3; 
+      LocalDate Is = LocalDate.of(2009,01,07);
+      LocalDate Fs = LocalDate.of(2009,01,06);
       
-      Siniestro s = new Siniestro(dr ,Is,ld,"Incendio","Incendio edificio", Fs, 9,alfa,true);
+      Siniestro s = new Siniestro(dr ,Is,ld,"Deceso","Deceso en vias de tren", Fs, 8,alfa,true);
       SiniestroData sd = new SiniestroData();
       
-      sd.guardarSiniestro(s);
+      //sd.guardarSiniestro(s);
+      //sd.modificarSiniestro(s);
+      //sd.eliminarSiniestro(2);
+      //sd.buscarSiniestro(3);
+      sd.listarSiniestro();
     }
         
     }

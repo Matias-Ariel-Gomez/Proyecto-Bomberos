@@ -75,6 +75,7 @@ public class SiniestroData {
             ps.setInt(7, s.getPuntuacion());
             ps.setInt(8,s.getBrigada().getCodBrigada());
             ps.setBoolean(9, s.isEstadoSiniestro());
+            ps.setInt(10,s.getCodSiniestro());
 
             int modificacion= ps.executeUpdate(); 
             
@@ -90,110 +91,128 @@ public class SiniestroData {
         }
     }
      
-//    public void eliminarSiniestro(int id){
-//        String sql = "UPDATE siniestro SET estadoSiniestro=0 WHERE codSiniestro=?";
-//
-//        try {
-//            PreparedStatement ps = conex.prepareStatement(sql);
-//
-//            ps.setInt(1, id);
-//
-//            int filaEliminada = ps.executeUpdate();
-//
-//            if (filaEliminada == 1) {
-//                JOptionPane.showMessageDialog(null, " Eliminacion efectuada.");
-//            }
-//
-//            ps.close();
-//
-//        } catch (SQLException e) {
-//            JOptionPane.showMessageDialog(null, " Error en la eliminacón en la Base de Datos.");
-//        }   
-//        
-//     }
-//    
-//    
-//    public Siniestro buscarSiniestro(int id) {
-//         
-//        Siniestro s=null;
-//         
-//        String sql="SELECT  * FROM siniestro WHERE  codSiniestro=? " ;
-//         
-//         try{
-//             PreparedStatement ps=conex.prepareStatement(sql);
-//             ps.setInt(1, id);
-//             
-//             ResultSet rs=ps.executeQuery();
-//             
-//             if(rs.next()){
-//             
-//                 s = new Siniestro();
-//                 s.setCodSiniestro(id);
-//                 s.setDireccionSiniestro(rs.getDouble("direccionSiniestro"));
-//                 s.setFechaSiniestro(rs.getDate("fechaSiniestro").toLocalDate());
-//                 s.setHora(hr);
-//                 s.setTipo(rs.getString("tipo"));
-//                 s.setDetalle(rs.getString("detalle"));
-//                 s.setPuntuacion(rs.getInt("puntuaciojn"));
-//                 s.setBrigada((Brigada) rs.getObject("brigada"));
-//                 s.setEstadoSiniestro(rs.getBoolean("estadoSiniestro"));
-//             
-//             }
-//             
-//             ps.close();
-//             rs.close();
-//             
-//         }catch (SQLException e){
-//             
-//             JOptionPane.showMessageDialog(null, "Error al realizar búsqueda.");
-//         }
-//         
-//        return s;
-//     
-//     }
-//    
-//     
-//    public ArrayList<Siniestro> listarSiniestro(){
-//        Siniestro s=null;
-//       
-//        
-//        ArrayList<Siniestro> lista = new ArrayList<>();
-//        
-//        try {
-//            String sql = "SELECT direccion, fecha, tipo,  FROM siniestro WHERE estadoSiniestro =? ";
-//            
-//            PreparedStatement ps = conex.prepareStatement(sql);
-//            ps.setBoolean(2, true);
-//           
-//            ResultSet rs = ps.executeQuery();
-//            
-//            while (rs.next()) {
-//                 s = new Siniestro();
-//                 s.setDireccionSiniestro(rs.getDouble("direccionSiniestro"));       
-//                 s.setFechaSiniestro(rs.getDate("fechaSiniestro").toLocalDate());
-//                 s.setTipo(rs.getString("tipo"));
-//                 s.isEstadoSiniestro();
-//                 
-//                 lista.add(s);    
-//                 
-//            }    
-//            
-//            System.out.println("LISTADO DE SINIESTROS ACTIVOS");
-//            for (Siniestro x:lista){
-//                     
-//                System.out.println(x.getDireccionSiniestro() + " " + x.getFechaSiniestro()+ " " + x.getTipo() );
-//                System.out.println("");
-//            }
-//            System.out.println("");                
-//            
-//            
-//            
-//            ps.close();
-//            rs.close();
-//            
-//        } catch (SQLException e) {
-//            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Siniestro de la Base de Datos." );
-//        }
-//        return lista;
-//    }
+    public void eliminarSiniestro(int id){
+        String sql = "UPDATE siniestro SET estadoSiniestro=0 WHERE codSiniestro=?";
+
+        try {
+            PreparedStatement ps = conex.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            int filaEliminada = ps.executeUpdate();
+
+            if (filaEliminada == 1) {
+                JOptionPane.showMessageDialog(null, " Eliminacion efectuada.");
+            }
+
+            ps.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error en la eliminacón del siniestro");
+        }   
+        
+     }
+    
+    
+    public Siniestro buscarSiniestro(int id) {
+         
+        Siniestro s = null;
+         
+        String sql= "SELECT * FROM siniestro WHERE codSiniestro = ?" ;
+         
+         try{
+             PreparedStatement ps = conex.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+             
+             ps.setInt(1, id);
+             
+             ResultSet rs = ps.executeQuery();
+             
+             if(rs.next()){
+             
+                 s = new Siniestro();
+                 s.setCodSiniestro(id);
+                 s.setDireccionSiniestro(rs.getDouble("direccionSiniestro"));
+                 s.setFechaSiniestro(rs.getDate("fechaSiniestro").toLocalDate());
+                 s.setHora(rs.getTime("hora").toLocalTime());
+                 s.setTipo(rs.getString("tipo"));
+                 s.setDetalle(rs.getString("detalle"));
+                 s.setFechaResolucion(rs.getDate("fechaResolucion").toLocalDate());
+                 s.setPuntuacion(rs.getInt("puntuacion"));
+                 
+                 Brigada br = new Brigada();
+                 br.setCodBrigada(rs.getInt("codBrigada"));
+                 
+                 
+                 s.setBrigada(br);
+                 s.setEstadoSiniestro(rs.getBoolean("estadoSiniestro"));
+                 System.out.println(s);
+             }
+             
+             ps.close();
+             rs.close();
+             
+         }catch (SQLException e){
+             
+             JOptionPane.showMessageDialog(null, "Error al realizar búsqueda");
+         }
+         
+        return s;
+     
+     }
+    
+     
+    public ArrayList<Siniestro> listarSiniestro(){
+        
+        Siniestro s=null;
+       
+        ArrayList<Siniestro> lista = new ArrayList<>();
+        
+        try {
+            String sql = "SELECT * FROM siniestro WHERE estadoSiniestro =? ";
+            
+            PreparedStatement ps = conex.prepareStatement(sql);
+            ps.setBoolean(1, true);
+           
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                s = new Siniestro();
+                 s.setCodSiniestro(rs.getInt("codSiniestro"));
+                 s.setDireccionSiniestro(rs.getDouble("direccionSiniestro"));
+                 s.setFechaSiniestro(rs.getDate("fechaSiniestro").toLocalDate());
+                 s.setHora(rs.getTime("hora").toLocalTime());
+                 s.setTipo(rs.getString("tipo"));
+                 s.setDetalle(rs.getString("detalle"));
+                 s.setFechaResolucion(rs.getDate("fechaResolucion").toLocalDate());
+                 s.setPuntuacion(rs.getInt("puntuacion"));
+                 
+                 Brigada br = new Brigada();
+                 br.setCodBrigada(rs.getInt("codBrigada"));
+                 
+                 
+                 s.setBrigada(br);
+                 s.setEstadoSiniestro(rs.getBoolean("estadoSiniestro"));
+                 
+                 lista.add(s);    
+                 
+            }    
+            
+            System.out.println("LISTADO DE SINIESTROS ACTIVOS:" + "\n");
+            for (Siniestro x:lista){
+                     
+                System.out.println(x);
+                System.out.println("");
+            }
+            System.out.println("");                
+            
+            
+            
+            ps.close();
+            rs.close();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Siniestro " );
+        }
+        return lista;
+    }
 }
