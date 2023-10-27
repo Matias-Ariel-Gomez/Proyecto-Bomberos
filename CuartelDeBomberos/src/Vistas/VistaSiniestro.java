@@ -4,10 +4,10 @@ package Vistas;
 import Vistas.CentralView;
 
 
-public class SiniestroView extends javax.swing.JInternalFrame {
+public class VistaSiniestro extends javax.swing.JInternalFrame {
     private CentralView escritorio;
    
-    public SiniestroView() {
+    public VistaSiniestro() {
         initComponents();
 
     }
