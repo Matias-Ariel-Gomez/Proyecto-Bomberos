@@ -71,9 +71,4 @@ public class Cuartel {
         return cuartel;
         
     }
-
-   
-    
-    
-    
 }

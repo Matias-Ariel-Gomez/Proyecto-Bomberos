@@ -9,10 +9,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class SiniestroData {
@@ -214,5 +216,92 @@ public class SiniestroData {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Siniestro " );
         }
         return lista;
+    }
+    
+    public ArrayList<Siniestro> listarUltimosSiniestros(){
+     
+        Siniestro s=null;
+        
+        ArrayList<Siniestro> lista = new ArrayList<>();
+        
+        try {
+            
+            LocalDate hoy = LocalDate.now();
+            LocalDate ayer = hoy.minusDays(1);
+            
+//            System.out.println(ahora);
+//            System.out.println(ayer);
+
+            
+            String sql = "SELECT * FROM siniestro";
+            
+            PreparedStatement ps = conex.prepareStatement(sql);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                s = new Siniestro();
+                 s.setCodSiniestro(rs.getInt("codSiniestro"));
+                 s.setDireccionSiniestro(rs.getDouble("direccionSiniestro"));
+                 s.setFechaSiniestro(rs.getDate("fechaSiniestro").toLocalDate());
+                 s.setHora(rs.getTime("hora").toLocalTime());
+                 s.setTipo(rs.getString("tipo"));
+                 s.setDetalle(rs.getString("detalle"));
+                 s.setFechaResolucion(rs.getDate("fechaResolucion").toLocalDate());
+                 s.setPuntuacion(rs.getInt("puntuacion"));
+                 
+                 Brigada br = new Brigada();
+                 br.setCodBrigada(rs.getInt("codBrigada"));
+                 
+                 
+                 s.setBrigada(br);
+                 s.setEstadoSiniestro(rs.getBoolean("estadoSiniestro"));
+                 
+                 lista.add(s);
+            }    
+                System.out.println("LISTADO DE SINIESTROS EN LOS ULTIMOS DOS DIAS:" + "\n");
+                for (Siniestro x: lista){
+                    
+                    if(x.getFechaSiniestro().isEqual(hoy)){
+                        System.out.println(x.toString());
+                    }else if(x.getFechaSiniestro().isEqual(ayer)){
+                        System.out.println(x.toString());
+                                                            
+                }
+                }       
+              
+            ps.close();
+            rs.close();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Siniestro " );
+        }
+        return lista;
+        
+    }
+    
+    public void cierreSiniestro(int id,LocalDate fechaRes,int puntua){
+    
+       String sql= "UPDATE siniestro SET  fechaResolucion =?, puntuacion= ?"
+                   +"  WHERE codSiniestro=? " ;
+      
+        try {
+            PreparedStatement ps = conex.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            
+            ps.setDate(1,Date.valueOf(fechaRes));
+            ps.setInt(2,puntua);
+            ps.setInt(3, id);
+            
+            int modificacion= ps.executeUpdate(); 
+            
+            if (modificacion>=1) {
+                JOptionPane.showMessageDialog(null, " Modificacion efectuada.");
+             }
+            
+             ps.close();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error de sentencia sql");
+        }
     }
 }

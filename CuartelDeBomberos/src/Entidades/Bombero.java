@@ -110,16 +110,10 @@ public class Bombero {
 
     @Override
     public String toString() {
-        return "Bombero{" + "codBombero=" + codBombero + ", dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", grupoSanguineo=" + grupoSanguineo + ", fechaNacimiento=" + fechaNacimiento + ", telCelular=" + telCelular + ", brigada=" + brigada + ", estadoBombero=" + estadoBombero + '}';
+        return "codBombero=" + codBombero + ", dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", grupoSanguineo=" + grupoSanguineo + ", fechaNacimiento=" + fechaNacimiento + ", telCelular=" + telCelular + ", brigada=" + brigada.getCodBrigada() + ", estadoBombero=" + estadoBombero;
     }
 
-    public void setBrigada(String brigada) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setBrigada(int brigada) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
        
     

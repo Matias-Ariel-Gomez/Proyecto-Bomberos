@@ -25,8 +25,9 @@ public class BomberoData {
            
 
     public void guardarBombero(Bombero b){
-        String sql= ("INSERT INTO  bombero * VALUES (?,?,?,?,?,?)");  
-         
+        String sql= ("INSERT INTO  bombero (dni,nombreCompleto,grupoSanguineo,fechaNacimiento,telCelular,codBrigada,estadoBombero) VALUES (?,?,?,?,?,?,?)");  
+        
+        
          try{  
              PreparedStatement ps = conex.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
              
@@ -35,14 +36,15 @@ public class BomberoData {
              ps.setString(3,b.getGrupoSanguineo());
              ps.setDate(4,Date.valueOf(b.getFechaNacimiento()));
              ps.setString(5, b.getTelCelular());
-//             ps.setInt(6, b.getBrigada().getCodBrigada());
+             ps.setInt(6, b.getBrigada().getCodBrigada());
              ps.setBoolean(7,b.isEstadoBombero());
              
              ps.executeUpdate();
              ResultSet rs= ps.getGeneratedKeys(); 
              
              if(rs.next()){
-                 b.setCodBombero(rs.getInt(1)); 
+                 b.setCodBombero(rs.getInt(1));
+                 System.out.println(b.toString());
                  JOptionPane.showMessageDialog(null, "Bombero guardado.");
              }
             
@@ -52,7 +54,7 @@ public class BomberoData {
              
              JOptionPane.showMessageDialog(null, " Error en la inserción en la Base de Datos. ");
          }     
-  
+        
     }
 
     
@@ -150,50 +152,50 @@ public class BomberoData {
      }
      
     
-    public ArrayList<Bombero> listarBombero(){
-        Bombero b=null;
-       
+    public ArrayList<Bombero> listarBomberosPorBrigada(){
         
+        Bombero b=null;
+        
+        String sql = "SELECT * FROM bombero GROUP BY codBrigada ";
         ArrayList<Bombero> lista = new ArrayList<>();
         
-        try {
-            String sql = "SELECT dni, nombreCompleto FROM bombero WHERE estadoBombero =?";
-            
-            PreparedStatement ps = conex.prepareStatement(sql);
-            ps.setBoolean(1, true);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next()) {
-                 b = new Bombero();
-                 b.setDni(rs.getString("dni"));       
-                 b.setNombreCompleto(rs.getString("nombreCompleto"));
-                 b.isEstadoBombero();
-                
-                 lista.add(b);    
+                   
+        try{  
+             PreparedStatement ps = conex.prepareStatement(sql);
+             ResultSet rs= ps.executeQuery();
+             
+             if(rs.next()){
+             
+             b = new Bombero();    
+             b.setCodBombero(rs.getInt("codBombero")); 
+             b.setDni(rs.getString("dni"));
+             b.setNombreCompleto(rs.getString("nombreCompleto"));
+             b.setGrupoSanguineo(rs.getString("grupoSanguineo"));
+             b.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
+             b.setTelCelular(rs.getString("telCelular"));
+             
+             Brigada br = new Brigada();
+             br.setCodBrigada(rs.getInt("codBrigada"));
                  
-            }    
-            
-            System.out.println("LISTADO DE BOMBEROS ACTIVOS");
-            for (Bombero x:lista){
-                     
-                System.out.println(x.getDni()+ " " + x.getNombreCompleto() );
-                System.out.println("");
-            }
-            System.out.println("");                
-            
-            
-            
-            ps.close();
-            rs.close();
-            
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Bombero " );
-        }
-        return lista;
+             b.setBrigada(br);
+             b.setEstadoBombero(rs.getBoolean("estadoBombero"));
+             
+             lista.add(b);
+             System.out.println(b);
+             }
+             
+             ps.close();
+             rs.close();
+         }catch (SQLException e){
+             
+             JOptionPane.showMessageDialog(null, " Error en de acceso a Base de Datos ");
+         }
+         return lista;
     }
        
-}    
-
+      
+    
+}  
     
     
     

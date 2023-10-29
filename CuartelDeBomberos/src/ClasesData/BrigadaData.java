@@ -20,7 +20,7 @@ public class BrigadaData {
         conex=CentralData.conectarBD();
     }
     
-        public void guardarBrigada(Brigada br){
+    public void guardarBrigada(Brigada br){
         String sql= ("INSERT INTO brigada (nombreClave,especialidad,codCuartel,estadoBrigada)"
                      + "VALUES (?,?,?,?)");  
          
@@ -48,7 +48,7 @@ public class BrigadaData {
          }     
   
     }
-     public void eliminarBrigada(int br) {
+    public void eliminarBrigada(int br) {
         String sql = "UPDATE brigada SET estadoBrigada=0 WHERE codBrigada=?";
 
         try {
@@ -69,7 +69,7 @@ public class BrigadaData {
         }   
         
      } 
-      public void modificarBrigada(Brigada br){
+    public void modificarBrigada(Brigada br){
     
        String sql= "UPDATE brigada SET  nombreClave=?, especialidad=?,  estadoBrigada=? "
                    +"  WHERE codBrigada=? " ;
@@ -96,7 +96,7 @@ public class BrigadaData {
         }
     }
       
-      public Brigada buscarBrigada(int id) {
+    public Brigada buscarBrigada(int id) {
          
          Brigada br=null;
          
@@ -135,7 +135,7 @@ public class BrigadaData {
      
      }
     
-public ArrayList<Brigada> listarBrigada(){
+    public ArrayList<Brigada> listarBrigada(){
         Brigada br=null;
        
         
@@ -178,5 +178,42 @@ public ArrayList<Brigada> listarBrigada(){
         }
         return lista;
     }
+    public ArrayList<Brigada> listarBrigadasPorCuartel(){
+        
+        Brigada br = null;
+        
+        String sql = "SELECT * FROM brigada GROUP BY codCuartel ";
+        ArrayList<Brigada> lista = new ArrayList<>();
+        
+                   
+        try{  
+             PreparedStatement ps = conex.prepareStatement(sql);
+             ResultSet rs= ps.executeQuery();
+             
+             if(rs.next()){
+             
+             br = new Brigada();    
+             br.setCodBrigada(rs.getInt("codBrigada")); 
+             br.setNombreClave(rs.getString("nombreClave"));
+             br.setEspecialidad(rs.getString("especialidad"));
+             
+             Cuartel cr = new Cuartel();
+             cr.setCodCuartel(rs.getInt("codCuartel"));
+                 
+             br.setCuartel(cr);
+             br.setEstadoBrigada(rs.getBoolean("estadoBrigada"));
+             
+             lista.add(br);
+             System.out.println(br);
+             }
+             
+             ps.close();
+             rs.close();
+         }catch (SQLException e){
+             
+             JOptionPane.showMessageDialog(null, " Error en de acceso a Base de Datos ");
+         }
+         return lista;
+    }
        
-}    
+}     
