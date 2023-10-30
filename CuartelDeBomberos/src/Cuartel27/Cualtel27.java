@@ -14,11 +14,11 @@ public class Cualtel27 {
     public static void main(String[] args) {
         
         
-     LocalTime ld = LocalTime.now();//Hora de inicio del siniestro, igual a la del sistema
-     double direccion = 4.9;//donde 4 seria X y 9 seria Y 
-     LocalDate InicioSiniestro = LocalDate.of(2023,10,25);//Fecha de inicio del siniestro
-     Cuartel cuartelx = new Cuartel( 7,"CuartelDos", 1.2, "000-333333", "cuarteldos@cuartel27.com");
-     CuartelData cd = new CuartelData();
+////     LocalTime ld = LocalTime.now();//Hora de inicio del siniestro, igual a la del sistema
+////     double direccion = 4.9;//donde 4 seria X y 9 seria Y 
+////     LocalDate InicioSiniestro = LocalDate.of(2023,10,25);//Fecha de inicio del siniestro
+////     Cuartel cuartelx = new Cuartel( 7,"CuartelDos", 1.2, "000-333333", "cuarteldos@cuartel27.com");
+////     CuartelData cd = new CuartelData();
      
      
     /*REQUERIMIENTOS DEL PROYECTO Y SUS RESOLUCIONES: 
@@ -38,12 +38,12 @@ public class Cualtel27 {
     1ro) Se crea una brigada con los atributos necesarios (nombreClave, especialidad,cuartel, estadoBrigada),
     existe un atributo mas que es el codigoBrigada, pero es autoincremental en base de datos,por tanto se autoasignaria.*/
     
-    Brigada brigadax = new Brigada("Brigada Gamma","Inundaciones", cuartelx, true);
+////    Brigada brigadax = new Brigada("Brigada Gamma","Inundaciones", cuartelx, true);
     
  /* 2do) Para traer las brigadas existentes en base de datos se instancia una clase "BrigadaData",la cual posee el 
     metodo "listarBrigada"
     */  
-    BrigadaData brd = new BrigadaData();
+////    BrigadaData brd = new BrigadaData();
   //brd.listarBrigada();
     
     /*             Mostrar todos los incidentes o siniestros que han ocurrido entre ayer y hoy:
@@ -51,7 +51,7 @@ public class Cualtel27 {
     1ro) Se instancia una clase "siniestroData", la cual posee el metodo "listarUltimosSiniestros" que trae desde base
     de datos los sinistros de los ultimos 2 dias.*/
     
-    SiniestroData sd = new SiniestroData();
+////    SiniestroData sd = new SiniestroData();
   //sd.listarUltimosSiniestros();
     
     /*                       Se necesita consultar:
@@ -60,7 +60,7 @@ public class Cualtel27 {
     
     1)Se crea una instanciacion de clase "BomberoData" a traves de la cual podremos utilizar el metodo 
     "listarBomberosPorBrigada"*/
-    BomberoData bd = new BomberoData();
+////    BomberoData bd = new BomberoData();
   //bd.listarBomberosPorBrigada();
     
   /* 2)Teniendo ya una instanciacion de clase "BrigadaData" en la linea 36 podremos utilizar el metodo 
@@ -77,7 +77,7 @@ public class Cualtel27 {
     datos, un LocalDate que sera la fecha de resolucion y un int que sera utilizado como puntuacion.
     Todo esto teniendo en cuenta que un siniestro sin solucion se encontrara cargado
     originalmente sin fecha de resolucion o puntuacion.*/
-    LocalDate fechaSolucion = LocalDate.of(2023,10,30);
+////    LocalDate fechaSolucion = LocalDate.of(2023,10,30);
     //sd.cierreSiniestro(3,fechaSolucion,9);
     
     /*           Mostrar los cuarteles de bomberos cerca de un punto de siniestro o incidente:
@@ -121,10 +121,10 @@ public class Cualtel27 {
        //brd.modificarBrigada(alfa);
        //brd.guardarBrigada(brigada);
        //brd.eliminarBrigada(1);
-       Brigada brigadaPrueba = new Brigada(1,"Brigada Alfa","Rescate en altura", cuartelx, true);
-       LocalDate fechaNacim = LocalDate.of(1978,12,06);
-       Bombero b = new Bombero("01020871", "Fernandez,Esteban", "AB(+)", fechaNacim , "000-7777", brigadaPrueba ,true);
-        
+////       Brigada brigadaPrueba = new Brigada(1,"Brigada Alfa","Rescate en altura", cuartelx, true);
+////       LocalDate fechaNacim = LocalDate.of(1978,12,06);
+////       Bombero b = new Bombero("01020871", "Fernandez,Esteban", "AB(+)", fechaNacim , "000-7777", brigadaPrueba ,true);
+////        
        //bd.guardarBombero(b);        
        //bd.modificarBombero(b);
        //bd.eliminarBombero(2);

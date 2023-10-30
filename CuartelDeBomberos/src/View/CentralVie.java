@@ -1,18 +1,15 @@
-package Vistas;
-
+package View;
 import javax.swing.JOptionPane;
 
+public class CentralVie extends javax.swing.JFrame {
 
-public class CentralView extends javax.swing.JFrame {
-
-    public CentralView() {
+    public CentralVie() {
         initComponents();
         this.setLocationRelativeTo(null);
-        ingresoNoView();      
-        
+        principal();
+     
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -60,8 +57,6 @@ public class CentralView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        escritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         contacto.setBackground(new java.awt.Color(0, 51, 51));
         contacto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,8 +115,6 @@ public class CentralView extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("los 7 dias de la semana.");
         contacto.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
-
-        escritorio.add(contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 290, 340));
 
         Redes.setBackground(new java.awt.Color(0, 51, 51));
 
@@ -187,8 +180,6 @@ public class CentralView extends javax.swing.JFrame {
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        escritorio.add(Redes, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 290, 130));
 
         panel_usuario.setBackground(new java.awt.Color(0, 51, 51));
         panel_usuario.setForeground(new java.awt.Color(0, 51, 51));
@@ -261,21 +252,60 @@ public class CentralView extends javax.swing.JFrame {
                 .addGap(72, 72, 72))
         );
 
-        escritorio.add(panel_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 550, 480));
-
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/fondo.jpg"))); // NOI18N
-        escritorio.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 610));
 
-        getContentPane().add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
+        escritorio.setLayer(contacto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(Redes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(panel_usuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(fondo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escritorioLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(panel_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Redes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contacto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
+            .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(escritorioLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(fondo)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escritorioLayout.createSequentialGroup()
+                .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(escritorioLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(contacto, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Redes, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(escritorioLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(panel_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(111, Short.MAX_VALUE))
+            .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(escritorioLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        getContentPane().add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 610));
 
         jmb_menu.setBackground(new java.awt.Color(153, 153, 153));
         jmb_menu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jmi_exit.setBackground(new java.awt.Color(153, 153, 153));
         jmi_exit.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jmi_exit.setForeground(new java.awt.Color(51, 51, 51));
         jmi_exit.setText("Gestión de Siniestros");
-        jmi_exit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jmi_exit.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jmi_exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmi_exitActionPerformed(evt);
@@ -283,8 +313,7 @@ public class CentralView extends javax.swing.JFrame {
         });
 
         jmi_siniestros.setBackground(new java.awt.Color(212, 245, 236));
-        jmi_siniestros.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jmi_siniestros.setForeground(new java.awt.Color(102, 102, 102));
+        jmi_siniestros.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jmi_siniestros.setText("Siniestros");
         jmi_siniestros.setFocusPainted(true);
         jmi_siniestros.addActionListener(new java.awt.event.ActionListener() {
@@ -295,8 +324,7 @@ public class CentralView extends javax.swing.JFrame {
         jmi_exit.add(jmi_siniestros);
 
         jmi_bomberos.setBackground(new java.awt.Color(212, 245, 236));
-        jmi_bomberos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jmi_bomberos.setForeground(new java.awt.Color(102, 102, 102));
+        jmi_bomberos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jmi_bomberos.setText("Bomberos");
         jmi_bomberos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -306,8 +334,7 @@ public class CentralView extends javax.swing.JFrame {
         jmi_exit.add(jmi_bomberos);
 
         jmi_brigadas.setBackground(new java.awt.Color(212, 246, 236));
-        jmi_brigadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jmi_brigadas.setForeground(new java.awt.Color(102, 102, 102));
+        jmi_brigadas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jmi_brigadas.setText("Brigadas");
         jmi_brigadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,8 +344,7 @@ public class CentralView extends javax.swing.JFrame {
         jmi_exit.add(jmi_brigadas);
 
         jmi_cuarteles.setBackground(new java.awt.Color(212, 245, 236));
-        jmi_cuarteles.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jmi_cuarteles.setForeground(new java.awt.Color(102, 102, 102));
+        jmi_cuarteles.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jmi_cuarteles.setText("Cuarteles");
         jmi_cuarteles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,8 +354,7 @@ public class CentralView extends javax.swing.JFrame {
         jmi_exit.add(jmi_cuarteles);
 
         jMenuItem1.setBackground(new java.awt.Color(212, 245, 236));
-        jMenuItem1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem1.setForeground(new java.awt.Color(102, 102, 102));
+        jMenuItem1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jMenuItem1.setText("Salir");
         jmi_exit.add(jMenuItem1);
 
@@ -341,7 +366,7 @@ public class CentralView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
+               
         String usuarioIng = tf_usuario.getText();
         char[] claveIng = tf_clave.getPassword();
         String clave = new String(claveIng);
@@ -352,8 +377,8 @@ public class CentralView extends javax.swing.JFrame {
             if (usuarioIng.equals(usuario) && clave.equals("1234")) {
 
                 JOptionPane.showMessageDialog(null, "Acceso correcto al sistema.");
-                ingresoView();
-
+                secundario();
+                
             } else if (!usuarioIng.equals(usuario) && clave.equals("1234")) {
 
                 JOptionPane.showMessageDialog(null, " Usuario incorrecto.");
@@ -380,51 +405,17 @@ public class CentralView extends javax.swing.JFrame {
 
             }
 
-           
         } catch (NullPointerException e) {
 
             JOptionPane.showMessageDialog(null, " Parametros ingresados incorrectos. No se admiten simbolos o imagenes. ");
         }
         
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jmi_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_exitActionPerformed
-
-    }//GEN-LAST:event_jmi_exitActionPerformed
-
-    private void jmi_cuartelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_cuartelesActionPerformed
-
-        ingresoNoView();
-        escritorio.repaint();
-        CuartelView cua=new CuartelView();
-        cua.setVisible(true);
-        escritorio.add(cua);
-        cua.moveToFront();
-    }//GEN-LAST:event_jmi_cuartelesActionPerformed
-
-    private void jmi_brigadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_brigadasActionPerformed
-
-        ingresoNoView();
-        escritorio.repaint();
-        BrigadaView bri=new BrigadaView();
-        bri.setVisible(true);
-        escritorio.add(bri);
-        bri.moveToFront();
-    }//GEN-LAST:event_jmi_brigadasActionPerformed
-
-    private void jmi_bomberosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_bomberosActionPerformed
-
-        ingresoNoView();
-        escritorio.repaint();
-        BomberoView bom=new BomberoView();
-        bom.setVisible(true);
-        escritorio.add(bom);
-        bom.moveToFront();
-    }//GEN-LAST:event_jmi_bomberosActionPerformed
-
     private void jmi_siniestrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_siniestrosActionPerformed
-
-        ingresoNoView();
+        
+        ingresoView();
         escritorio.repaint();
         SiniestroView sin=new SiniestroView();
         sin.setVisible(true);
@@ -432,8 +423,50 @@ public class CentralView extends javax.swing.JFrame {
         sin.moveToFront();
     }//GEN-LAST:event_jmi_siniestrosActionPerformed
 
+    private void jmi_bomberosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_bomberosActionPerformed
+        
+        ingresoView();
+        escritorio.repaint();
+        BomberoView bom=new BomberoView();
+        bom.setVisible(true);
+        escritorio.add(bom);
+        bom.moveToFront();
+    }//GEN-LAST:event_jmi_bomberosActionPerformed
+
+    private void jmi_brigadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_brigadasActionPerformed
+        
+        ingresoView();
+        escritorio.repaint();
+        BrigadaView bri=new BrigadaView();
+        bri.setVisible(true);
+        escritorio.add(bri);
+        bri.moveToFront();
+    }//GEN-LAST:event_jmi_brigadasActionPerformed
+
+    private void jmi_cuartelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_cuartelesActionPerformed
+      
+        ingresoView();
+        escritorio.repaint();
+        CuartelView cua=new CuartelView();
+        cua.setVisible(true);
+        escritorio.add(cua);
+        cua.moveToFront();
+       
+    }//GEN-LAST:event_jmi_cuartelesActionPerformed
+
+    private void jmi_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_exitActionPerformed
+
+    }//GEN-LAST:event_jmi_exitActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
-   
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -442,18 +475,21 @@ public class CentralView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CentralView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentralVie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CentralView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentralVie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CentralView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentralVie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CentralView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentralVie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-     
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CentralView().setVisible(true);
+                new CentralVie().setVisible(true);
             }
         });
     }
@@ -500,27 +536,29 @@ public class CentralView extends javax.swing.JFrame {
     private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
 
-public void ingresoNoView(){
+public void principal(){
     
-    jmb_menu.setVisible(true);
+    panel_usuario.setVisible(true);
+    jmb_menu.setVisible(false);
     contacto.setVisible(false);
-    Redes.setVisible(false);   
-      
-    
+    Redes.setVisible(false);
 }
-public void ingresoView(){
+
+public void secundario(){
     
     panel_usuario.setVisible(false);
-    escritorio.setVisible(true);
     jmb_menu.setVisible(true);
     contacto.setVisible(true);
     Redes.setVisible(true);
-    
 }
 
-   
-
-
-
+public void ingresoView(){
+      
+    panel_usuario.setVisible(false);    
+    jmb_menu.setVisible(true);
+    contacto.setVisible(false);
+    Redes.setVisible(false);
+    
+}
 
 }
