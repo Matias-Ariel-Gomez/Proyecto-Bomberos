@@ -1,12 +1,12 @@
 package Entidades;
-import Entidades.Brigada;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Siniestro {
     private int codSiniestro;
-    private Double direccionSiniestro;
+    private int calleS;
+    private int alturaS;
     private LocalDate fechaSiniestro;
     private LocalTime hora = LocalTime.now();
     private String tipo;
@@ -19,27 +19,38 @@ public class Siniestro {
     public Siniestro() {
     }
 
-    public Siniestro(int codSiniestro, Double direccionSiniestro, LocalDate fechaSiniestro, LocalTime hora, String tipo, String detalle, LocalDate fechaResolucion, int puntuacion, Brigada brigada, boolean estadoSiniestro) {
+    public Siniestro(int codSiniestro, int calleS, int alturaS, LocalDate fechaSiniestro, LocalTime hora, String tipo, String detalle, LocalDate fechaResolucion, int puntuacion, boolean estadoSiniestro) {
         this.codSiniestro = codSiniestro;
-        this.direccionSiniestro = direccionSiniestro;
+        this.calleS = calleS;
+        this.alturaS = alturaS;
         this.fechaSiniestro = fechaSiniestro;
-        this.hora = hora;
+        this.hora=hora;
         this.tipo = tipo;
         this.detalle = detalle;
         this.fechaResolucion = fechaResolucion;
         this.puntuacion = puntuacion;
-        this.brigada = brigada;
         this.estadoSiniestro = estadoSiniestro;
     }
 
-    public Siniestro(Double direccionSiniestro, LocalDate fechaSiniestro, LocalTime hora, String tipo, String detalle, LocalDate fechaResolucion, int puntuacion, Brigada brigada, boolean estadoSiniestro) {
-        this.direccionSiniestro = direccionSiniestro;
+    public Siniestro(int calleS, int alturaS, LocalDate fechaSiniestro, LocalTime  hora, String tipo, String detalle, LocalDate fechaResolucion, int puntuacion, boolean estadoSiniestro) {
+        this.calleS = calleS;
+        this.alturaS = alturaS;
         this.fechaSiniestro = fechaSiniestro;
-        this.hora = hora;
+        this.hora=hora;
         this.tipo = tipo;
         this.detalle = detalle;
         this.fechaResolucion = fechaResolucion;
         this.puntuacion = puntuacion;
+        this.estadoSiniestro = estadoSiniestro;
+    }
+
+    public Siniestro(int calleS, int alturaS, LocalDate fechaSiniestro, LocalTime hora, String tipo, String detalle, Brigada brigada, boolean estadoSiniestro) {
+        this.calleS = calleS;
+        this.alturaS = alturaS;
+        this.fechaSiniestro = fechaSiniestro;
+        this.hora=hora;
+        this.tipo = tipo;
+        this.detalle = detalle;
         this.brigada = brigada;
         this.estadoSiniestro = estadoSiniestro;
     }
@@ -52,12 +63,20 @@ public class Siniestro {
         this.codSiniestro = codSiniestro;
     }
 
-    public Double getDireccionSiniestro() {
-        return direccionSiniestro;
+    public int getCalleS() {
+        return calleS;
     }
 
-    public void setDireccionSiniestro(Double direccionSiniestro) {
-        this.direccionSiniestro = direccionSiniestro;
+    public void setCalleS(int calleS) {
+        this.calleS = calleS;
+    }
+
+    public int getAlturaS() {
+        return alturaS;
+    }
+
+    public void setAlturaS(int alturaS) {
+        this.alturaS = alturaS;
     }
 
     public LocalDate getFechaSiniestro() {
@@ -123,14 +142,19 @@ public class Siniestro {
     public void setEstadoSiniestro(boolean estadoSiniestro) {
         this.estadoSiniestro = estadoSiniestro;
     }
-
+    
     @Override
     public String toString() {
-        String siniestro=(" Codigo del Siniestro: " + codSiniestro + "- Dirección: " + direccionSiniestro + "- Fecha del Siniestro: " + fechaSiniestro + "-  Hora:" + hora + "- Tipo: " + tipo + "- Detalle: " + detalle + "- Fecha de Resolucion: " + fechaResolucion + "-  Puntuacion: " + puntuacion + "- Brigada: " + brigada.getCodBrigada() + "- Estado: " + estadoSiniestro);
-        return siniestro;
-    }
-
-  
+        return (codSiniestro + " " + calleS + " " + alturaS + " " + fechaSiniestro + ", hora=" + hora + " " + tipo + " " + detalle + " " + fechaResolucion + " " + puntuacion);
+    }  
     
-    
+//    public double dSiniestro(){
+//        
+//        double calle = calleS*calleS;
+//        double altura=alturaS*alturaS;
+//        
+//        double dist1= Math.sqrt(calle + altura);
+//       
+//        return dist1;
+//    }
 }

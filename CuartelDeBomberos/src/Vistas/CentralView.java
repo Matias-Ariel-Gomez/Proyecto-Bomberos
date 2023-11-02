@@ -1,9 +1,10 @@
-package View;
+package Vistas;
+
 import javax.swing.JOptionPane;
 
-public class CentralVie extends javax.swing.JFrame {
+public class CentralView extends javax.swing.JFrame {
 
-    public CentralVie() {
+    public CentralView() {
         initComponents();
         this.setLocationRelativeTo(null);
         principal();
@@ -313,7 +314,7 @@ public class CentralVie extends javax.swing.JFrame {
         });
 
         jmi_siniestros.setBackground(new java.awt.Color(212, 245, 236));
-        jmi_siniestros.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jmi_siniestros.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jmi_siniestros.setText("Siniestros");
         jmi_siniestros.setFocusPainted(true);
         jmi_siniestros.addActionListener(new java.awt.event.ActionListener() {
@@ -324,7 +325,7 @@ public class CentralVie extends javax.swing.JFrame {
         jmi_exit.add(jmi_siniestros);
 
         jmi_bomberos.setBackground(new java.awt.Color(212, 245, 236));
-        jmi_bomberos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jmi_bomberos.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jmi_bomberos.setText("Bomberos");
         jmi_bomberos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -334,7 +335,7 @@ public class CentralVie extends javax.swing.JFrame {
         jmi_exit.add(jmi_bomberos);
 
         jmi_brigadas.setBackground(new java.awt.Color(212, 246, 236));
-        jmi_brigadas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jmi_brigadas.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jmi_brigadas.setText("Brigadas");
         jmi_brigadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,7 +345,7 @@ public class CentralVie extends javax.swing.JFrame {
         jmi_exit.add(jmi_brigadas);
 
         jmi_cuarteles.setBackground(new java.awt.Color(212, 245, 236));
-        jmi_cuarteles.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jmi_cuarteles.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jmi_cuarteles.setText("Cuarteles");
         jmi_cuarteles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -354,7 +355,7 @@ public class CentralVie extends javax.swing.JFrame {
         jmi_exit.add(jmi_cuarteles);
 
         jMenuItem1.setBackground(new java.awt.Color(212, 245, 236));
-        jMenuItem1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jMenuItem1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jMenuItem1.setText("Salir");
         jmi_exit.add(jMenuItem1);
 
@@ -475,21 +476,23 @@ public class CentralVie extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CentralVie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentralView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CentralVie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentralView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CentralVie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentralView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CentralVie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentralView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CentralVie().setVisible(true);
+                new CentralView().setVisible(true);
             }
         });
     }

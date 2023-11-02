@@ -3,24 +3,27 @@ package Entidades;
 public class Cuartel {
     private int codCuartel;
     private String nombreCuartel;
-    private Double direccion;
+    private int calleC;
+    private int alturaC;    
     private String telefono;
     private String mail;
 
     public Cuartel() {
     }
 
-    public Cuartel(int codCuartel, String nombreCuartel, Double direccion, String telefono, String mail) {
+    public Cuartel(int codCuartel, String nombreCuartel, int calleC, int alturaC, String telefono, String mail) {
         this.codCuartel = codCuartel;
         this.nombreCuartel = nombreCuartel;
-        this.direccion = direccion;
+        this.calleC = calleC;
+        this.alturaC = alturaC;
         this.telefono = telefono;
         this.mail = mail;
     }
 
-    public Cuartel(String nombreCuartel, Double direccion, String telefono, String mail) {
+    public Cuartel(String nombreCuartel, int calleC, int alturaC, String telefono, String mail) {
         this.nombreCuartel = nombreCuartel;
-        this.direccion = direccion;
+        this.calleC = calleC;
+        this.alturaC= alturaC;
         this.telefono = telefono;
         this.mail = mail;
     }
@@ -41,13 +44,21 @@ public class Cuartel {
         this.nombreCuartel = nombreCuartel;
     }
 
-    public Double getDireccion() {
-        return direccion;
+    public int getCalleC() {
+        return calleC;
     }
 
-    public void setDireccion(Double direccion) {
-        this.direccion = direccion;
+    public void setCalleC(int calleC) {
+        this.calleC = calleC;
     }
+
+    public int getAlturaC() {
+        return alturaC;
+    }
+
+    public void setAlturaC(int alturaC) {
+        this.alturaC = alturaC;  
+    }   
 
     public String getTelefono() {
         return telefono;
@@ -67,8 +78,7 @@ public class Cuartel {
 
     @Override
     public String toString() {
-        String cuartel= ("Codigo Cuartel: " + codCuartel + "- Nombre del Cuartel: " + nombreCuartel + "- Direccion: " + direccion + "-  Telefono: " + telefono + "- Mail=" + mail);
-        return cuartel;
+        return (codCuartel + "-" +  nombreCuartel);
         
     }
 }

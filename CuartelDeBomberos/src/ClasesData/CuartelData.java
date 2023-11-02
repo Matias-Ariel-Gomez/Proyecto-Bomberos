@@ -21,17 +21,18 @@ public class CuartelData {
         conex=CentralData.conectarBD();
     }
     
-     public void guardarCuartel(Cuartel c) {
-        String sql = ("INSERT INTO cuartel(nombreCuartel,direccion,telefono,mail)"
-                + "VALUES (?,?,?,?)");
+    public void guardarCuartel(Cuartel c) {
+        String sql = ("INSERT INTO cuartel (nombreCuartel, calleC, alturaC, telefono, mail) "
+                + "VALUES (?,?,?,?,?)");
 
         try {
             PreparedStatement ps = conex.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1, c.getNombreCuartel());
-            ps.setDouble(2, c.getDireccion());
-            ps.setString(3, c.getTelefono());
-            ps.setString(4, c.getMail());
+            ps.setInt(2, c.getCalleC());
+            ps.setInt(3, c.getAlturaC());
+            ps.setString(4, c.getTelefono());
+            ps.setString(5, c.getMail());
 
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -46,40 +47,12 @@ public class CuartelData {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, " Error en la inserción en la Base de Datos. ");
+            JOptionPane.showMessageDialog(null, " Error en sentencia SQL. ");
         }
 
     }
-
-     public void modificarCuartel(Cuartel Cu){
     
-       String sql= "UPDATE cuartel SET  nombreCuartel =?,direccion=?,telefono=?,mail=?  WHERE codCuartel=?;" ;
-         
-        try {
-            PreparedStatement ps = conex.prepareStatement(sql); 
-            
-            ps.setString(1,Cu.getNombreCuartel());
-            ps.setDouble(2,Cu.getDireccion());
-            ps.setString(3, Cu.getTelefono());
-            ps.setString(4,Cu.getMail());
-            ps.setInt(5,Cu.getCodCuartel());
-           
-            
-            
-            int modificacion= ps.executeUpdate(); 
-            
-            if (modificacion>=1) {
-                JOptionPane.showMessageDialog(null, " Modificacion efectuada.");
-            }
-            
-             ps.close();
-            
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, " Error de sentencia sql");
-        }
-    }
-
-     public Cuartel buscarCuartel(int id) {
+    public Cuartel buscarCuartel(int id) {
          
          Cuartel c =null;
          
@@ -97,7 +70,8 @@ public class CuartelData {
                  c = new Cuartel();
                  c.setCodCuartel(id);
                  c.setNombreCuartel(rs.getString("nombreCuartel"));
-                 c.setDireccion(rs.getDouble("direccion"));
+                 c.setCalleC(rs.getInt("calleC"));
+                 c.setAlturaC(rs.getInt("alturaC"));
                  c.setTelefono(rs.getString("telefono"));
                  c.setMail(rs.getString("mail"));
                 }
@@ -107,22 +81,21 @@ public class CuartelData {
              
          }catch (SQLException e){
              
-             JOptionPane.showMessageDialog(null, "Error en la búsqueda(SQL Excepcion)");
+             JOptionPane.showMessageDialog(null, "Error en sentencia SQL. ");
          }
-         System.out.println(c.toString()); 
+        
         return c;
      
      } 
 
-     public ArrayList<Cuartel> listarCuartel(){
+    public ArrayList<Cuartel> listarCuartel(){
         
-         Cuartel c =null;
-       
+        Cuartel c =null;       
         
-        ArrayList<Cuartel> listaCuartel = new ArrayList<>();
+        ArrayList<Cuartel> lista = new ArrayList<>();
         
         try {
-            String sql = "SELECT * FROM cuartel" ;
+            String sql = "SELECT codCuartel, nombreCuartel, calleC, alturaC, telefono, mail  FROM cuartel" ;
             
             PreparedStatement ps = conex.prepareStatement(sql);
             
@@ -132,31 +105,27 @@ public class CuartelData {
                  c = new Cuartel();
                  c.setCodCuartel(rs.getInt("codCuartel"));
                  c.setNombreCuartel(rs.getString("nombreCuartel"));
-                 c.setDireccion(rs.getDouble("direccion"));
+                 c.setCalleC(rs.getInt("calleC"));
+                 c.setAlturaC(rs.getInt("alturaC"));
                  c.setTelefono(rs.getString("telefono"));
                  c.setMail(rs.getString("mail"));
-                
-                 listaCuartel.add(c);    
+                                 
+                 lista.add(c);  
                  
-            }    
-            
-            System.out.println("LISTADO DE CUARTELES CERCANOS");
-            
-            for (Cuartel x:listaCuartel){
-                     
-                System.out.println(x.toString());
-                System.out.println("");
-            }
-            System.out.println("");                
-            
-            
+            }              
+                       
+//            for (Cuartel x:lista){
+//                     
+//                System.out.println(x);
+//               
+//            }               
             
             ps.close();
             rs.close();
             
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla cuartel " );
+            JOptionPane.showMessageDialog(null, " Error sentencia SQL. " );
         }
-        return listaCuartel;
-    }
-}
+        return lista;
+    }  
+}    

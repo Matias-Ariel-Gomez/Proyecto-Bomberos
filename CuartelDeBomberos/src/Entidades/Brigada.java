@@ -1,5 +1,4 @@
 package Entidades;
-import Entidades.Cuartel;
 
 public class Brigada {
     private int codBrigada;
@@ -26,6 +25,7 @@ public class Brigada {
         this.estadoBrigada = estadoBrigada;
     }
 
+    
     public int getCodBrigada() {
         return codBrigada;
     }
@@ -68,13 +68,7 @@ public class Brigada {
 
     @Override
     public String toString() {
-        String brigada=("Codigo Brigada: " + codBrigada + "- Nombre Brigada:" + nombreClave + "- Especialidad: " + especialidad + "- Cuartel: " + cuartel.getCodCuartel() + "- Estado: " + estadoBrigada);
-        return brigada;
-    }
-    
-    
-    
-
-   
-    
+        return(codBrigada + "-" + nombreClave + "-" + especialidad);
+         
+    }    
 }

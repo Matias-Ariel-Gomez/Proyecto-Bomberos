@@ -1,6 +1,5 @@
 package Entidades;
 import java.time.LocalDate;
-import Entidades.Brigada;
 
 public class Bombero {
     private int codBombero;
@@ -34,14 +33,6 @@ public class Bombero {
         this.telCelular = telCelular;
         this.brigada = brigada;
         this.estadoBombero = estadoBombero;
-    }
-
-    public Bombero(String dni, String nombreCompleto, String grupoSanguineo, LocalDate fechaNacimiento, String telCelular, int brigada, Boolean estado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Bombero(String dni, String nombreCompleto, String grupoSanguineo, LocalDate fechaNacimiento, String telCelular, String brigada, Boolean estadoBombero) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getCodBombero() {
@@ -110,12 +101,8 @@ public class Bombero {
 
     @Override
     public String toString() {
-        return "codBombero=" + codBombero + ", dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", grupoSanguineo=" + grupoSanguineo + ", fechaNacimiento=" + fechaNacimiento + ", telCelular=" + telCelular + ", brigada=" + brigada.getCodBrigada() + ", estadoBombero=" + estadoBombero;
+        
+        return (codBombero + "" + dni + "" + nombreCompleto + "" + grupoSanguineo + "" + fechaNacimiento + "" + telCelular + "" + brigada + "" + estadoBombero);
     }
-
-    
-
-       
-    
     
 }
